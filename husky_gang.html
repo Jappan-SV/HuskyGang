@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Husky Gang</title>
     <style>
+        /* General styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -17,10 +18,16 @@
             color: #fff;
             padding: 1rem 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+        }
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         nav {
             background-color: #555;
@@ -28,35 +35,53 @@
             display: flex;
             justify-content: center;
             padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 1rem;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
         nav a:hover {
+            color: #ffcc00;
             text-decoration: underline;
         }
         .hero {
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
             background-color: #007BFF;
             color: white;
+            background: linear-gradient(135deg, #0056b3, #007BFF);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .hero h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .content {
             padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .content h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
+            border-bottom: 2px solid #007BFF;
+            display: inline-block;
+            padding-bottom: 0.3rem;
         }
         .content p {
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         footer {
             background-color: #333;
@@ -64,6 +89,10 @@
             text-align: center;
             padding: 1rem 0;
             margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
@@ -98,4 +127,3 @@
     </footer>
 </body>
 </html>
-
