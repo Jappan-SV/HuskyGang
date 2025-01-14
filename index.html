@@ -83,6 +83,42 @@
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
         footer {
             background-color: #333;
             color: white;
@@ -95,6 +131,31 @@
             margin: 0;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll(".carousel img");
+            const totalImages = images.length;
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle("active", i === index);
+                });
+            }
+
+            document.getElementById("prevButton").addEventListener("click", function() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                showImage(currentIndex);
+            });
+
+            document.getElementById("nextButton").addEventListener("click", function() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                showImage(currentIndex);
+            });
+
+            showImage(currentIndex);
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -109,6 +170,15 @@
     <section class="hero">
         <h2>Welcome to Husky Gang</h2>
         <p>Where students come together to support teachers and create harmony in classrooms.</p>
+    </section>
+    <section class="carousel">
+        <img src="image1.jpg" alt="Husky Gang Activity 1" class="active">
+        <img src="image2.jpg" alt="Husky Gang Activity 2">
+        <img src="image3.jpg" alt="Husky Gang Activity 3">
+        <div class="carousel-buttons">
+            <button id="prevButton" class="carousel-button">&#8592; Prev</button>
+            <button id="nextButton" class="carousel-button">Next &#8594;</button>
+        </div>
     </section>
     <section class="content" id="about">
         <h3>About Us</h3>
